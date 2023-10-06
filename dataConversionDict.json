@@ -1,0 +1,75 @@
+{
+	"trips": {
+		"p15_tripname": {
+			"webflowString": "name"
+		},
+		"p15_tripsid": {
+			"webflowString": "tripidp15"
+		},
+		"p15_primarydestinationid": {
+			"webflowString": "primarydestination",
+			"isAttributeName": true
+		},
+		"p15_triptypestotripsid": {
+			"webflowString": "triptype",
+			"isAttributeName": true
+		},
+		"statuscode": {
+			"webflowString": "statuscode",
+			"isAttributeName": true
+		},
+		"statecode": {
+			"webflowString": "statecode",
+			"isAttributeName": true
+		},
+		"p15_difficulty": {
+			"webflowString": "difficulty",
+			"isAttributeName": true
+		}
+	},
+	"departures": {
+		"p15_name": {
+			"webflowString": "name"
+		},
+		"p15_tripid": {
+			"webflowString": "tripsidp15"
+		},
+		"p15_tripdeparturesid": {
+			"webflowString": "tripdeparturesid"
+		},
+		"p15_startdate": {
+			"webflowString": "startdate",
+			"isDateString": true
+		},
+		"p15_enddate": {
+			"webflowString": "enddate",
+			"isDateString": true
+		},
+		"p15_availablespaces": {
+			"webflowString": "availablespaces",
+			"isInteger": true
+		},
+		"statecode": {
+			"webflowString": "statecode",
+			"isAttributeName": true
+		},
+		"statuscode": {
+			"webflowString": "statuscode",
+			"isAttributeName": true
+		},
+		"p15_stopsellflag": {
+			"webflowString": "stopsellflag",
+			"isAttributeName": true
+		},
+		"p15_tourdays": {
+			"webflowString": "tourdays",
+			"isInteger": true
+		},
+		"p15_departurereferenceid": {
+			"webflowString": "departurereferenceid"
+		},
+		"p15_departurecode": {
+			"webflowString": "departurecode"
+		}
+	}
+}
