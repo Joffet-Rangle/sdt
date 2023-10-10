@@ -9,17 +9,17 @@ export const peakItemsRequiringSync = async (
 	webflowExistingItems,
 	peakItems
 ) => {
-	const peakItemsIdsArray = peakItems.map((e) => e.tripidp15);
 	const requiringSyncArray = [];
 	let matchingIdLabel = "tripidp15";
 	if (dataType === "departures") matchingIdLabel = "tripdeparturesid";
+	const peakItemsIdsArray = peakItems.map((e) => e[matchingIdLabel]);
 
 	// if an item exists in Webflow, but not in Peak15, then delete it
 	for (let index = 0; index < webflowExistingItems.length; index++) {
 		const webflowItem = webflowExistingItems[index];
-		if (!peakItemsIdsArray.includes(webflowItem.tripidp15)) {
+		if (!peakItemsIdsArray.includes(webflowItem[matchingIdLabel])) {
 			// delete item from webflow
-			console.log("here");
+			console.log(`deleting a ${dataType}`);
 			webflowDelete(getCollectionId(dataType), webflowItem.webflowId);
 		}
 	}
