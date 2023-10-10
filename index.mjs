@@ -40,7 +40,8 @@ export const handler = async (event, context) => {
 	// get departures from Peak
 	const peakDeparturesDataArray = await peak15Query("p15_tripdepartures");
 
-	// combine the original query of existing trips with the returned value of trips updated. If some new ones were created, we need the assigned webflowIds in case we need to create new departures for those trips
+	// combine the original query of existing trips with the returned value of trips updated.
+	// If some new trips were created, we need the assigned webflowIds in case we need to create new departures for those trips
 	const updatedExistingWebflowTrips = updateExistingWebflowTrips(
 		existingWebflowTrips,
 		postedTrips
