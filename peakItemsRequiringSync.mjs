@@ -20,7 +20,7 @@ export const peakItemsRequiringSync = async (
 		if (!peakItemsIdsArray.includes(webflowItem[matchingIdLabel])) {
 			// delete item from webflow
 			console.log(`deleting a ${dataType}`);
-			webflowDelete(getCollectionId(dataType), webflowItem.webflowId);
+			await webflowDelete(getCollectionId(dataType), webflowItem.webflowId);
 		}
 	}
 
@@ -54,6 +54,7 @@ export const peakItemsRequiringSync = async (
 
 				// webflow adds '.000Z' to the end of date fields, so remove that Z for comparison purposes
 				if (
+					webflowValue &&
 					typeof webflowValue === "string" &&
 					webflowValue.slice(webflowValue.length - 5, webflowValue.length) ===
 						".000Z"

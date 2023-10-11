@@ -1,7 +1,8 @@
 import { webflowPostOrPatch, webflowQuery, peak15Query } from "./apiCalls.mjs";
 import { peakItemsRequiringSync } from "./peakItemsRequiringSync.mjs";
-import { peakArrayToWebflowArray } from "./peakArrayToWebflowArray.mjs";
+import { peakArrayToWebflowFormatArray } from "./peakArrayToWebflowFormatArray.mjs";
 import { getCollectionId, updateExistingWebflowTrips } from "./common.mjs";
+import "dotenv/config";
 
 export const handler = async (event, context) => {
 	// TRIPS SYNC
@@ -10,7 +11,7 @@ export const handler = async (event, context) => {
 	const peakTripDataArray = await peak15Query("p15_trips");
 
 	// convert to array of flat objects with only the fields we care about
-	const peakTripDataInWebflowFormatArray = peakArrayToWebflowArray(
+	const peakTripDataInWebflowFormatArray = peakArrayToWebflowFormatArray(
 		"trips",
 		peakTripDataArray
 	);
@@ -48,7 +49,7 @@ export const handler = async (event, context) => {
 	);
 
 	// convert to array of flat objects with only the fields we care about
-	const peakDepartureDataInWebflowFormatArray = peakArrayToWebflowArray(
+	const peakDepartureDataInWebflowFormatArray = peakArrayToWebflowFormatArray(
 		"departures",
 		peakDeparturesDataArray,
 		updatedExistingWebflowTrips
@@ -70,4 +71,4 @@ export const handler = async (event, context) => {
 		webflowPostOrPatch(getCollectionId("departures"), departuresToSync);
 };
 
-handler();
+if (process.env.IS_LOCAL_MACHINE) handler();

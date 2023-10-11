@@ -25,6 +25,14 @@
 		"p15_difficulty": {
 			"webflowString": "difficulty",
 			"isAttributeName": true
+		},
+		"p15_fromprice": {
+			"webflowString": "fromprice",
+			"isInteger": true
+		},
+		"p15_numtourdays": {
+			"webflowString": "tourdays",
+			"isInteger": true
 		}
 	},
 	"departures": {
@@ -70,6 +78,10 @@
 		},
 		"p15_departurecode": {
 			"webflowString": "departurecode"
+		},
+		"p15_fromprice": {
+			"webflowString": "fromprice",
+			"isInteger": true
 		}
 	}
 }

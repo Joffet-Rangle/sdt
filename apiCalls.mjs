@@ -13,7 +13,6 @@ export const webflowPostOrPatch = async (
 	for (let index = 0; index < dataInWebflowFormatArray.length; index++) {
 		const fieldData = dataInWebflowFormatArray[index];
 		if (!fieldData) continue;
-
 		// if updating/patching an existing record, change the method and url
 		if (fieldData.webflowId) {
 			url += `/${fieldData.webflowId}`;
@@ -32,7 +31,7 @@ export const webflowPostOrPatch = async (
 			data: JSON.stringify({ fieldData }),
 		})
 			.then((res) => postedItems.push(webflowRawToFlat(res.data)))
-			.catch((err) => console.log({ err, err: err.code }));
+			.catch((err) => console.log({ fieldData, errcode: err.code }));
 	}
 	return postedItems;
 };
@@ -91,5 +90,5 @@ export const peak15Query = async (peak15EntityName) => {
 			console.log(`axios error: ${error}`);
 			response`Error: ${error}`;
 		});
-	return response.result;
+	return response?.result;
 };
