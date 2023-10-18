@@ -10,16 +10,18 @@ export const webflowRawToFlat = (item) => {
 	return flattenedItem;
 };
 
-export const updateExistingWebflowTrips = (
-	oldExistingWebflowTrips,
-	justAddedTrips
+export const updateExistingWebflowDepartures = (
+	oldExistingWebflowDepartures,
+	justAddedDepartures
 ) => {
-	const addedTripIdsArray = justAddedTrips.map((e) => e.tripidp15);
-	// filter out trips in the old array that also exist in the new
-	const returnArray = oldExistingWebflowTrips.filter(
-		(e) => !addedTripIdsArray.includes(e.tripidp15)
+	const addedDepartureIdsArray = justAddedDepartures.map(
+		(e) => e.tripdeparturesid
 	);
-	returnArray.concat(justAddedTrips);
+	// filter out Departures in the old array that also exist in the new
+	const returnArray = oldExistingWebflowDepartures.filter(
+		(e) => !addedDepartureIdsArray.includes(e.tripdeparturesid)
+	);
+	returnArray.concat(justAddedDepartures);
 	return returnArray;
 };
 

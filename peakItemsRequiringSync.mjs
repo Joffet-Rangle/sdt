@@ -33,7 +33,6 @@ export const peakItemsRequiringSync = async (
 		);
 
 		if (!webflowObject) {
-			console.log("no webflowObject");
 			requiringSyncArray.push(peakObject);
 		} else {
 			peakObject.webflowId = webflowObject.webflowId;
